@@ -1,8 +1,6 @@
 from pydantic import BaseModel , EmailStr , AnyUrl , Field, model_validator
 from typing import List, Dict , Optional, Annotated
 
-#DATA VALIDATION USING PYDANTIC
-
 class Patient(BaseModel):
 
     name: str
