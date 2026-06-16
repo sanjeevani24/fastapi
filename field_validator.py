@@ -31,13 +31,14 @@ class Patient(BaseModel):
     def transform_name(cls,value):
         return value.upper()
 
+    @field_validator('age', mode='before')
+    @classmethod
+    def age_validator(cls, value):
+        if 0 < value < 100:
+            return value
+        else:
+            raise ValueError('Age must be between 0 and 100.')
 
-
-def insert_patient_data(patient: Patient):
-
-    print(patient.name)
-    print(patient.age) 
-    print("Inserted")
 
 def update_patient_data(patient: Patient):
 
@@ -54,6 +55,5 @@ patient_info = {'name': 'Sanjeevani', 'age': 20, 'email': 'sm2020@icici.com', 'w
 
 patient1 = Patient(**patient_info)
 
-#insert_patient_data(patient1)
 update_patient_data(patient1)
 
