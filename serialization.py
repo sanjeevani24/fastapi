@@ -30,3 +30,5 @@ temp1 = patient1.model_dump_json(exclude= {'address':['state']})      # converts
 
 print(temp1)
 print(type(temp1))
+
+#exclude_unset = True --- IGNORE the field which has not been defined---
